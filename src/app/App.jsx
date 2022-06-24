@@ -1,27 +1,30 @@
-import styled from 'styled-components';
-import BaseClock from '../components/clock/BaseClock';
-import CreateClock from '../components/clock/CreateClock';
+import ClockList from '../components/clock-list';
+import LocalClock from '../components/local-clock';
+import useClock from '../hooks/useClock';
 
 const App = () => {
+  const { clock: local } = useClock();
+  const { clock: est } = useClock('EST');
+  const { clock: pst } = useClock('PST');
+  const { clock: edt } = useClock('EDT');
+  const { clock: mst } = useClock('MST');
+  const { clock: british } = useClock('BST');
+  const { clock: pakistan } = useClock('UTC', 5 * 60);
+
+  console.log('Local UTC', local.date);
+  console.log('EST', est.date);
+  console.log('PST', pst.date);
+  console.log('EDT', edt.date);
+  console.log('MST', mst.date);
+  console.log('British', british.date);
+  console.log('Pakistan', pakistan.date);
+
   return (
-    <>
-      <Header>
-        <H1>Track Zone</H1>
-      </Header>
-      <hr />
-      <BaseClock />
-      <CreateClock />
-    </>
+    <div>
+      <LocalClock />
+      <ClockList />
+    </div>
   );
 };
 
 export default App;
-
-const Header = styled.header`
-  text-align: center;
-  padding: 1.5rem 0;
-`;
-const H1 = styled.h1`
-  font-size: 2.5rem;
-  font-weight: bold;
-`;
