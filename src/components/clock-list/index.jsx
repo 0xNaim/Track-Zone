@@ -1,7 +1,7 @@
 const ClockList = () => {
   return (
     <div>
-      Clock List
+      <h1>Clock List</h1>
     </div>
   );
 };
