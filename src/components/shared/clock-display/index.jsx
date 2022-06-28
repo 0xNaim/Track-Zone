@@ -1,10 +1,14 @@
+import { format } from 'date-fns';
+
 const ClockDisplay = ({ title, date, timezone, offset }) => {
+  const offsetHr = offset / 60;
   return (
     <div>
       <h1>Title: {title}</h1>
-      <h3>{date.toLocaleTimeString()}</h3>
+      <h3>{format(date, 'hh:mm:ss a')}</h3>
       <p>
-        {timezone} | {offset / 60}
+        {timezone} |{' '}
+        {offsetHr > 0 ? `+${Math.abs(offsetHr)}` : `-${Math.abs(offsetHr)}`}
       </p>
     </div>
   );
