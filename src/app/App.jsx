@@ -4,7 +4,7 @@ import LocalClock from '../components/local-clock';
 
 const LOCAL_CLOCK_INIT = {
   title: 'My Clock',
-  timezone: '',
+  timezone: 'GMT',
   offset: 0,
   date: null,
 };

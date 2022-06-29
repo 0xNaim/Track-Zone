@@ -36,7 +36,7 @@ const useClock = (timezone, offset) => {
         setLocalTimeZone(dateStrArray[dateStrArray.pop()]);
       }
     }
-  }, [utc]);
+  }, [utc, timezone, offset]);
 
   return {
     date: localDate,

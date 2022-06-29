@@ -24,7 +24,7 @@ const LocalClock = ({ clock, updateClock }) => {
           offset={offset}
         />
       )}
-      <ClockActions local={true} />
+      <ClockActions local={true} clock={clock} updateClock={updateClock} />
     </div>
   );
 };
