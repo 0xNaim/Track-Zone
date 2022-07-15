@@ -45,10 +45,11 @@ const ClockForm = ({
       <div>
         <label htmlFor='title'>Enter Title</label>
         <input
-          type='text'
-          id='title'
-          name='title'
+          type={'text'}
+          id={'title'}
+          name={'title'}
           value={formValues.title}
+          placeholder={'Enter Title'}
           onChange={handleChange}
           disabled={!title}
         />
