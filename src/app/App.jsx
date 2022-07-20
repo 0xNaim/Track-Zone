@@ -1,10 +1,11 @@
+import { Box, Container, Typography } from '@mui/material';
 import { useState } from 'react';
 import { generate } from 'shortid';
 import ClockList from '../components/clock-list';
 import LocalClock from '../components/local-clock';
 
 const LOCAL_CLOCK_INIT = {
-  title: 'My Clock',
+  title: 'Local Clock',
   timezone: 'GMT',
   offset: 0,
   date: null,
@@ -40,19 +41,31 @@ const App = () => {
   };
 
   return (
-    <div style={{ margin: '2rem' }}>
-      <LocalClock
-        clock={localClock}
-        updateClock={updateLocalClock}
-        createClock={createClock}
-      />
-      <ClockList
-        localClock={localClock}
-        clocks={clocks}
-        updateClock={updateClock}
-        deleteClock={deleteClock}
-      />
-    </div>
+    <>
+      <Box sx={{ background: '#424242', p: 1 }}>
+        <Typography
+          variant={'h3'}
+          align={'center'}
+          fontWeight={'400'}
+          sx={{ fontSize: '2.5rem', color: '#fff' }}
+        >
+          Track Zone
+        </Typography>
+      </Box>
+      <Container maxWidth={'md'}>
+        <LocalClock
+          clock={localClock}
+          updateClock={updateLocalClock}
+          createClock={createClock}
+        />
+        <ClockList
+          localClock={localClock}
+          clocks={clocks}
+          updateClock={updateClock}
+          deleteClock={deleteClock}
+        />
+      </Container>
+    </>
   );
 };
 

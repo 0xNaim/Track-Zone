@@ -1,16 +1,25 @@
+import { Box } from '@mui/material';
 import useClock from '../../hooks/useClock';
 import useTimer from '../../hooks/useTimer';
 import ClockActions from '../shared/clock-actions';
-import ClockDisplay from '../shared/clock-display';
+import OtherClocks from './OtherClocks';
 
 const ClockListItem = ({ clock, localClock, updateClock, deleteClock }) => {
   const { date } = useClock(clock.timezone, clock.offset);
   const timer = useTimer(date);
 
   return (
-    <div>
+    <Box
+      sx={{
+        background: '#dddddd',
+        p: 2,
+        border: 2,
+        borderRadius: 1,
+        width: '300px',
+      }}
+    >
       {date && timer && (
-        <ClockDisplay
+        <OtherClocks
           date={timer}
           localClock={localClock}
           title={clock.title}
@@ -24,7 +33,7 @@ const ClockListItem = ({ clock, localClock, updateClock, deleteClock }) => {
         updateClock={updateClock}
         deleteClock={deleteClock}
       />
-    </div>
+    </Box>
   );
 };
 

@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import useClock from '../../hooks/useClock';
 import useTimer from '../../hooks/useTimer';
@@ -17,7 +18,16 @@ const LocalClock = ({ clock, updateClock, createClock }) => {
   }, [date]);
 
   return (
-    <div>
+    <Box
+      sx={{
+        background: '#dddddd',
+        mt: 2,
+        p: 2,
+        textAlign: 'center',
+        border: 2,
+        borderRadius: 1,
+      }}
+    >
       {timer && (
         <ClockDisplay
           date={timer}
@@ -32,7 +42,7 @@ const LocalClock = ({ clock, updateClock, createClock }) => {
         updateClock={updateClock}
         createClock={createClock}
       />
-    </div>
+    </Box>
   );
 };
 
